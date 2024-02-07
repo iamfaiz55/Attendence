@@ -1,0 +1,18 @@
+const mongoose = require("mongoose");
+
+const studentSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    batchId: {
+      type: mongoose.Types.ObjectId,
+      ref: "batch",
+      required: true,
+    },
+  },
+  { timeseries: true }
+);
+
+module.exports = mongoose.model("students", studentSchema);
